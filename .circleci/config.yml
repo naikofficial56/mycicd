@@ -26,17 +26,7 @@ jobs:
       - run:
           name: Run test cases
           command: go test
-  lint:
-    docker:
-      - image: circleci/golang:1.15.8
-    working_directory: ~/mycicd
-    steps:
-      - checkout
-      - run:
-          name: Run lint
-          command: |
-            wget -O- -nv https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.46.2
-            golangci-lint run
+
 workflows:
   build_and_test:
     jobs:
