@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  build_and_test:
+  build:
     docker:
       - image: circleci/golang:1.15.8
     working_directory: ~/mycicd
@@ -14,8 +14,19 @@ jobs:
           name: Install go dependencies
           command: |
             go mod download
-            go test
+  test:
+    docker:
+      - image: circleci/golang:1.15.8
+    working_directory: ~/mycicd
+    steps:
+      - checkout
+      - run:
+          name: Run test cases
+          command: go test
 workflows:
   build_and_test:
     jobs:
-      - build_and_test
+      - build
+      - test:
+          requires:
+            - build
