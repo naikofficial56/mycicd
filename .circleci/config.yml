@@ -32,7 +32,7 @@ jobs:
       - run:
           name: Run lint
           command: |
-            curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.46.2
+            curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh
             golangci-lint run
 workflows:
   build_and_test:
