@@ -1,3 +1,6 @@
+orbs:
+  golangci-lint: timakin/golangci-lint@volatile
+
 version: 2.1
 
 jobs:
@@ -41,4 +44,4 @@ workflows:
       - test:
           requires:
             - build
-      - lint
+      - golangci-lint/lint
