@@ -19,7 +19,7 @@ func Test_add(t *testing.T) {
 		{
 			name: "test cases 2",
 			args: args{num1: 24},
-			want: 36,
+			want: 34,
 		},
 	}
 	for _, tt := range tests {
