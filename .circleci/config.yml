@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  golangci-lint: timakin/golangci-lint@volatile
+
 jobs:
   build:
     docker:
@@ -23,6 +26,8 @@ jobs:
       - run:
           name: Run test cases
           command: go test
+  lint:
+    - golangci-lint/lint
 workflows:
   build_and_test:
     jobs:
@@ -30,3 +35,4 @@ workflows:
       - test:
           requires:
             - build
+      - lint
