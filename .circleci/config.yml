@@ -19,6 +19,7 @@ jobs:
       - image: circleci/golang:1.15.8
     working_directory: ~/mycicd
     steps:
+      - checkout
       - run:
           name: Run test cases
           command: go test
